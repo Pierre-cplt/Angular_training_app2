@@ -1,4 +1,4 @@
-@if(annualInvestsList.length == 0){
+@if(!annualInvestsList){
 <p style="text-align: center">please enter some values and press "calculate"</p>
 
 }@else {
@@ -19,16 +19,16 @@
         {{ annualInvest.year }}
       </td>
       <td>
-        {{ annualInvest.valueEndOfYear | currency }}
+        {{ annualInvest.valueEndOfYear | currency : "EUR" }}
       </td>
       <td>
-        {{ annualInvest.interest | currency }}
+        {{ annualInvest.interest | currency : "EUR" }}
       </td>
       <td>
-        {{ annualInvest.totalInterest | currency }}
+        {{ annualInvest.totalInterest | currency : "EUR" }}
       </td>
       <td>
-        {{ annualInvest.totalAmountInvested | currency }}
+        {{ annualInvest.totalAmountInvested | currency : "EUR" }}
       </td>
     </tr>
     }

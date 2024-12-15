@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { AnnualInvestsService } from '../user-input/annual-invests.service';
+import { Component, inject } from '@angular/core';
+import { AnnualInvestsService } from '../annual-invests.service';
 import { CurrencyPipe } from '@angular/common';
 
 @Component({
@@ -10,7 +10,8 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './investment-results.component.css'
 })
 export class InvestmentResultsComponent {
-  constructor(private annualInvestsService: AnnualInvestsService) { }
+
+  private annualInvestsService = inject(AnnualInvestsService);
 
   get annualInvestsList() {
     return this.annualInvestsService.getAnnualInvests();
