@@ -1,0 +1,37 @@
+@if(annualInvestsList.length == 0){
+<p style="text-align: center">please enter some values and press "calculate"</p>
+
+}@else {
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Investment Value</th>
+      <th>Interest (Year)</th>
+      <th>Total Interest</th>
+      <th>Invested Capital</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (annualInvest of annualInvestsList; track annualInvest.year){
+    <tr>
+      <td>
+        {{ annualInvest.year }}
+      </td>
+      <td>
+        {{ annualInvest.valueEndOfYear | currency }}
+      </td>
+      <td>
+        {{ annualInvest.interest | currency }}
+      </td>
+      <td>
+        {{ annualInvest.totalInterest | currency }}
+      </td>
+      <td>
+        {{ annualInvest.totalAmountInvested | currency }}
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+}
